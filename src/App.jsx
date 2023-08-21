@@ -1,24 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Header from "./components/Header/Header";
-import Search from "./components/Search/Search";
-import ProductsView from "./components/ProductsView/ProductsView";
+import MainView from "./pages/MainView/MainView";
 
 const App = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://itx-frontend-test.onrender.com/api/product")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
-
-  return (
-    <>
-      <Header />
-      <Search />
-      <ProductsView products={products} />
-    </>
-  );
+  return <MainView />;
 };
 
 export default App;
