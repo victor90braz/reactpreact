@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header/Header";
 import Search from "../../components/Search/Search";
 import ProductsView from "../../components/ProductsView/ProductsView";
 
@@ -14,7 +13,7 @@ const MainView = () => {
 
   return (
     <>
-      <Header />
+      <h2>List View</h2>
       <Search />
       <ProductsView products={products} />
     </>
