@@ -1,11 +1,11 @@
 import Header from "./components/Header/Header";
-import MainView from "./pages/MainView/MainView";
+import DetailsView from "./pages/DetailsView/DetailsView";
 
 const App = () => {
   return (
     <>
       <Header />
-      <MainView />
+      <DetailsView />
     </>
   );
 };
