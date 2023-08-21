@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
 
-function App() {
+const App = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://itx-frontend-test.onrender.com/api/product")
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <h1>List of products</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <h2>{product.brand}</h2>
+            <p>Model: {product.model}</p>
+            <p>Price: {product.price}</p>
+            <img
+              src={product.imgUrl}
+              alt={`${product.brand} ${product.model}`}
+            />
+          </li>
+        ))}
+      </ul>
+    </main>
   );
-}
+};
 
 export default App;
